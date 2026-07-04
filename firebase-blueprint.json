@@ -1,0 +1,50 @@
+{
+  "entities": {
+    "Resource": {
+      "title": "Resource",
+      "description": "Educational resource shared by the community",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "url": { "type": "string" },
+        "category": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "addedBy": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "url", "category"]
+    },
+    "StudyPlan": {
+      "title": "StudyPlan",
+      "description": "A user's personalized study plan",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "goal": { "type": "string" },
+        "tasks": { 
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": { "type": "string" },
+              "completed": { "type": "boolean" }
+            }
+          }
+        },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "goal"]
+    }
+  },
+  "firestore": {
+    "/resources/{resourceId}": {
+      "schema": "Resource",
+      "description": "Public educational resources"
+    },
+    "/users/{userId}/studyPlans/{planId}": {
+      "schema": "StudyPlan",
+      "description": "User specific study plans"
+    }
+  }
+}

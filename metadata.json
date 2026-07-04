@@ -1,0 +1,8 @@
+{
+  "name": "Fetl",
+  "description": "An accessible learning platform for children who cannot attend school, providing education resources for Grades 1 through 10.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
